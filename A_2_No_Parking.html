@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>No Parking</title>
+<center>
+
+    <canvas width="500" height="500" id="mycanvas" style="border: 2px solid red;"></canvas>
+</center>
+<script language="javascript">
+    function loader() {
+        var canvas = document.getElementById("mycanvas");
+        var context = canvas.getContext("2d");
+        context.beginPath();
+        context.fillStyle = "#000";
+        context.font = "70px sans-sarif";
+        context.fillText("NO", 190, 60);
+        context.closePath();
+
+        context.beginPath();
+        context.fillStyle = "#fff";
+        context.strokeStyle = "red";
+        context.lineWidth = "8";
+        context.arc(230, 220, 130, 0, 360);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.fillStyle="#000";
+        context.font = "230px sans-serif";
+        context.fillText("P", 170, 310);
+        context.moveTo(160, 110);
+        context.lineTo(290, 330);
+        context.lineWidth = "8";
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.fillStyle = "#000";
+        context.font = "75px sans-serif";
+        context.fillText("PARKING", 80, 420);
+        context.closePath();
+    }
+</script>
+</head>
+
+<body onload="loader()">
+</body>
+
+</html>

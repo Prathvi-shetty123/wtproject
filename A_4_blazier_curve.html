@@ -1,0 +1,75 @@
+<!Doctype html>
+<html>
+
+<head>
+    <style>
+        canvas {
+            border: 1px solid #2C2C2B;
+        }
+    </style>
+</head>
+
+<body>
+    <label>Quadraric curve color:
+        <input type="color" id="qColor" value="#fa4b20" onchange="quadraticCurve()">
+    </label><br>
+    <label>Quadraric curve thickness:
+        <input type="range" max="50" min="5" id="qThickness" value="5" onchange="quadraticCurve()">
+    </label><br>
+    <canvas id="Canvas" width="600" height="250">
+    </canvas>
+    <br>
+
+    <script>
+        function quadraticCurve() {
+            color = document.getElementById("qColor").value;
+            thickness = document.getElementById("qThickness").value;
+            var canvas = document.getElementById('Canvas');
+            var context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            context.beginPath();
+            context.moveTo(100, 100);
+
+            // Quadratic curve with control point 
+            context.quadraticCurveTo(240, 240, 270, 100)
+            context.lineWidth = thickness;
+
+            // Stroke colour
+            context.strokeStyle = color;
+            context.stroke();
+        }
+
+        quadraticCurve();
+    </script>
+    <br>
+    <label>Bezier curve:
+        <input type="color" id="bColor" value="" onchange="bezierCurve()">
+    </label>
+    <br>
+    <label>Bezier curve thickness:
+        <input type="range" max="50" min="5" id="bThickness" value="5" onchange="bezierCurve()">
+    </label>
+    <br>
+    <canvas id="myCanvas" width="600" height="250"> </canvas>
+    <script>
+        function bezierCurve() {
+            color = document.getElementById("bColor").value
+            thickness = document.getElementById("bThickness").value
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.beginPath();
+            context.moveTo(188, 130);
+            context.bezierCurveTo(140, 10, 388, 10, 388, 170)
+            context.lineWidth = thickness;
+
+            // lIne color
+            context.strokeStyle = color;
+            context.stroke();
+        }
+        bezierCurve();
+    </script>
+</body>
+
+</html>
